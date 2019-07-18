@@ -1,5 +1,5 @@
 [package]
-name = "uefi-alloc"
+name = "uefi_alloc"
 version = "0.1.0"
 authors = ["Gabriel Majeri <gabriel.majeri6@gmail.com>"]
 publish = false

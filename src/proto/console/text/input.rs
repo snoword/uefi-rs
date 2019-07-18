@@ -1,6 +1,7 @@
 use crate::proto::Protocol;
+use crate::data_types::chars::ENTER;
 use crate::{unsafe_guid, Char16, Event, Result, Status};
-use core::mem;
+use core::{mem, fmt};
 
 /// Interface for text-based input devices.
 #[repr(C)]
@@ -57,6 +58,21 @@ pub enum Key {
 
     /// The key is special (arrow, function, multimedia...)
     Special(ScanCode),
+}
+
+impl fmt::Display for Key {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            Key::Printable(c) => {
+                if c == &ENTER {//Enter
+                    write!(f, "\n")
+                } else {
+                    write!(f, "{}", c)
+                }
+            },
+            Key::Special(s) => { write!(f, "") }
+        }
+    }
 }
 
 impl From<RawKey> for Key {
