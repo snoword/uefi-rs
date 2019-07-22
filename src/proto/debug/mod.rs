@@ -18,6 +18,11 @@ use crate::unsafe_guid;
 #[derive(Protocol)]
 pub struct DebugSupport {
     isa: ProcessorArch,
+    // get_max_process_index: extern "win64" fn(this: &mut DebugSupport, index: &mut usize) -> Status,
+    // reg_period_call_back:  extern "win64" fn(this: &mut DebugSupport, index:usize, period_call_back: extern "win64" fn(context:SystemContext)) -> Status,
+    // reg_except_call_back:  extern "win64" fn(this: &mut DebugSupport, index:usize, except_call_back: extern "win64" fn(type:Exceptions, context:SystemContext)) -> Status,
+    // invalid_instruct_cache: extern "win64" fn(this: &mut DebugSupport, index:usize, start: &mut usize, length:u64) -> Status,
+
     // FIXME: Add the mising parts of the interface. Beware that it features
     //        unsafety in the form of an unchecked processor index.
 }
@@ -27,6 +32,10 @@ impl DebugSupport {
     pub fn arch(&self) -> ProcessorArch {
         self.isa
     }
+}
+
+struct SystemContext {
+
 }
 
 newtype_enum! {
@@ -54,4 +63,13 @@ pub enum ProcessorArch: u32 => {
     RISCV_64    = 0x5064,
     /// RISC-V 128-bit
     RISCV_128   = 0x5128,
-}}
+}
+
+// pub enum Exceptions: u32 => {
+//     SYNCHRONOUS_EXCEPTIONS = 0,
+//     IRQ = 1,
+//     FIQ = 2,
+//     SERROR = 3,
+// }
+
+}

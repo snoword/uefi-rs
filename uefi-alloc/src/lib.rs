@@ -86,3 +86,6 @@ unsafe impl GlobalAlloc for Allocator {
 #[global_allocator]
 #[cfg(any(target_arch="aarch64"))]
 static ALLOCATOR: Allocator = Allocator;
+
+#[no_mangle]
+pub unsafe extern "win64" fn __chkstk() {}
