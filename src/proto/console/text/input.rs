@@ -70,7 +70,7 @@ impl fmt::Display for Key {
                     write!(f, "{}", c)
                 }
             },
-            Key::Special(s) => { write!(f, "") }
+            Key::Special(_s) => { write!(f, "") }
         }
     }
 }

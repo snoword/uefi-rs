@@ -12,7 +12,6 @@
 //! Failure to do so will turn subsequent allocation into undefined behaviour.
 
 // Enable additional lints.
-#![warn(missing_docs)]
 #![deny(clippy::all)]
 #![no_std]
 
@@ -88,4 +87,5 @@ unsafe impl GlobalAlloc for Allocator {
 static ALLOCATOR: Allocator = Allocator;
 
 #[no_mangle]
+/// windows environment interface 
 pub unsafe extern "win64" fn __chkstk() {}

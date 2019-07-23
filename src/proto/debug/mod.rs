@@ -34,10 +34,6 @@ impl DebugSupport {
     }
 }
 
-struct SystemContext {
-
-}
-
 newtype_enum! {
 /// The instruction set architecture of the running processor.
 ///

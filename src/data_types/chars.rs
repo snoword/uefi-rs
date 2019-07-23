@@ -127,4 +127,5 @@ impl fmt::Display for Char16 {
 /// UCS-2 version of the NUL character
 pub const NUL_16: Char16 = Char16(0);
 
+/// key code of enter
 pub const ENTER: Char16 = Char16(13);

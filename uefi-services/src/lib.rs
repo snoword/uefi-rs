@@ -27,7 +27,6 @@ extern crate uefi_logger;
 // Allocator support.
 extern crate uefi_alloc;
 
-#[macro_use]
 extern crate log;
 
 use core::ptr::NonNull;
